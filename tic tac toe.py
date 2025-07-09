@@ -12,4 +12,12 @@ class TicTacToe(tk.Tk):
         self.current_player = 'X'
         self.create_board()
 
+    def create_board(self):
+        for i in range(3):
+            for j in range(3):
+                button = tk.Button(self, text='', font=('Helvetica', 24), width=3, height=1,
+                                   command=lambda row=i, col=j: self.make_move(row, col))
+                button.grid(row=i, column=j, padx=5, pady=5)
+                self.buttons[i][j] = button
+
    
