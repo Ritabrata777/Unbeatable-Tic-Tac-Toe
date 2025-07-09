@@ -21,3 +21,21 @@ class TicTacToe(tk.Tk):
                 self.buttons[i][j] = button
 
    
+ def make_move(self, row, col):
+        if self.board[row][col] == ' ' and self.current_player == 'X':
+            self.board[row][col] = 'X'
+            self.buttons[row][col].config(text='X')
+            winner = self.check_winner(self.board)
+            if winner:
+                messagebox.showinfo("Winner", f"Player {winner} wins!")
+                self.reset_game()
+            elif self.is_draw(self.board):
+                messagebox.showinfo("Draw", "It's a draw! :(")
+                self.reset_game()
+            else:
+                self.current_player = 'O'
+                self.after(300, self.computer_move)  # Delay for better UX
+
+    
+
+
