@@ -36,7 +36,10 @@ Accounts for depth to prioritize quicker victories and delay defeats
 ### 📁 File Structure
 
 📦 unbeatable-tic-tac-toe/
+
 │
+
 ├── tictactoe.py         # Main game file (Tkinter + Minimax AI)
+
 ├── README.md            # You're reading it!
 
