@@ -20,6 +20,7 @@ Developed by **Susan Mirja** and **Ritabrata Majumdar**
 - `tkinter` (pre-installed with Python on most systems)
 
 🧠AI Logic
+
 The AI is implemented using the Minimax algorithm, which simulates all possible future moves and selects the one with the optimal outcome. It:
 
 Maximizes its own chance of winning
