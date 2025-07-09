@@ -35,7 +35,21 @@ class TicTacToe(tk.Tk):
             else:
                 self.current_player = 'O'
                 self.after(300, self.computer_move)  # Delay for better UX
+def computer_move(self):
+        best_score = -float('inf')
+        best_move = None
 
+        for i in range(3):
+            for j in range(3):
+                if self.board[i][j] == ' ':
+                    self.board[i][j] = 'O'
+                    score = self.minimax(self.board, 0, False)
+                    self.board[i][j] = ' '
+                    if score > best_score:
+                        best_score = score
+                        best_move = (i, j)
+
+        
     
 
 
