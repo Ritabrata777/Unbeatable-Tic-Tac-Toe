@@ -43,3 +43,16 @@ Accounts for depth to prioritize quicker victories and delay defeats
 
 ├── README.md            # You're reading it!
 
+---
+
+
+### ⭐️ Show Your Support
+If you liked the project:
+
+🌟 Star the repo
+
+🍴 Fork it
+
+🧠 Suggest improvements
+
+💬 Share feedback
