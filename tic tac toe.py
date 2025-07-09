@@ -82,7 +82,45 @@ if best_move:
                         board[i][j] = ' '
                         max_eval = max(max_eval, eval)
             return max_eval
-      
+        else:
+            min_eval = float('inf')
+            for i in range(3):
+                for j in range(3):
+                    if board[i][j] == ' ':
+                        board[i][j] = 'X'
+                        eval = self.minimax(board, depth + 1, True)
+                        board[i][j] = ' '
+                        min_eval = min(min_eval, eval)
+            return min_eval
+
+    def check_winner(self, board):
+        # Rows & Columns
+        for i in range(3):
+            if board[i][0] == board[i][1] == board[i][2] != ' ':
+                return board[i][0]
+            if board[0][i] == board[1][i] == board[2][i] != ' ':
+                return board[0][i]
+        # Diagonals
+        if board[0][0] == board[1][1] == board[2][2] != ' ':
+            return board[0][0]
+        if board[0][2] == board[1][1] == board[2][0] != ' ':
+            return board[0][2]
+        return None
+
+    def is_draw(self, board):
+        return all(board[i][j] != ' ' for i in range(3) for j in range(3)) and not self.check_winner(board)
+
+    def reset_game(self):
+        self.board = [[' ' for _ in range(3)] for _ in range(3)]
+        for i in range(3):
+            for j in range(3):
+                self.buttons[i][j].config(text='')
+        self.current_player = 'X'
+
+if __name__ == "__main__":
+    game = TicTacToe()
+    game.mainloop()
+        
     
 
 
