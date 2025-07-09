@@ -48,8 +48,41 @@ def computer_move(self):
                     if score > best_score:
                         best_score = score
                         best_move = (i, j)
+if best_move:
+            i, j = best_move
+            self.board[i][j] = 'O'
+            self.buttons[i][j].config(text='O')
 
-        
+        winner = self.check_winner(self.board)
+        if winner:
+            messagebox.showinfo("Winner", f"Computer ({winner}) wins! 🤖")
+            self.reset_game()
+        elif self.is_draw(self.board):
+            messagebox.showinfo("Draw", "It's a draw!")
+            self.reset_game()
+        else:
+            self.current_player = 'X'
+
+    def minimax(self, board, depth, is_maximizing):
+        winner = self.check_winner(board)
+        if winner == 'O':
+            return 10 - depth
+        elif winner == 'X':
+            return depth - 10
+        elif self.is_draw(board):
+            return 0
+
+        if is_maximizing:
+            max_eval = -float('inf')
+            for i in range(3):
+                for j in range(3):
+                    if board[i][j] == ' ':
+                        board[i][j] = 'O'
+                        eval = self.minimax(board, depth + 1, False)
+                        board[i][j] = ' '
+                        max_eval = max(max_eval, eval)
+            return max_eval
+      
     
 
 
