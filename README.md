@@ -14,3 +14,7 @@ Developed by **Ritabrata Majumdar**.
 - ✅ Clean and intuitive user interface using `tkinter`
 ---
 
+### Requirements
+
+- Python 3.x  
+- `tkinter` (pre-installed with Python on most systems)
